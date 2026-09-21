@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voucher secreto 💛</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(135deg,#fff9df,#fff,#fff2b8);font-family:Arial,sans-serif;color:#3a3218}
+.card{width:min(430px,100%);background:#fffdf7;border:1px solid #eadfae;border-radius:28px;padding:30px 22px;text-align:center;box-shadow:0 15px 45px #806d1722}
+.icon{font-size:48px}.ticket{border:2px dashed #d8c36a;border-radius:18px;padding:17px;margin:20px 0}.code{font-weight:800;letter-spacing:3px;color:#806d17;font-size:13px}
+h1{font-size:27px;margin:8px 0}p{line-height:1.5;color:#71683f}.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+button{width:100%;min-height:64px;border:1px solid #e5dcae;border-radius:16px;background:white;color:#443b1c;font-size:16px;font-weight:800;cursor:pointer}
+button:hover{transform:translateY(-2px)}.wine{background:#f7eeeb}.flowers{background:#fff8c9}
+.hidden{display:none}.result{animation:pop .35s ease}.big{font-size:58px}.chosen{font-size:23px;font-weight:800;color:#6e5b13;margin:12px 0 18px}
+.again{min-height:48px;background:#f8f3dc;font-size:14px}@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@media(max-width:390px){.choices{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="card">
+<section id="start">
+<div class="icon">🎟️</div>
+<h1>Tenés un voucher secreto</h1>
+<p>Me llegó información de que hay un premio esperando ser canjeado por vos... 👀</p>
+<div class="ticket"><div class="code">VOUCHER · CM-021</div><div style="margin-top:8px">Canjeable por una sorpresa especial 💛</div></div>
+<p><b>Elegí cuidadosamente tu premio:</b></p>
+<div class="choices">
+<button class="wine" onclick="choose('🍷','Santa Julia')">🍷<br>Santa Julia</button>
+<button class="flowers" onclick="choose('🌼','Flores amarillas')">🌼<br>Flores amarillas</button>
+</div>
+</section>
+<section id="result" class="hidden">
+<div class="big" id="emoji">💛</div>
+<h1>¡Voucher canjeado! ✨</h1>
+<p>Tu elección fue:</p>
+<div class="chosen" id="chosen"></div>
+<p>Ahora solo falta coordinar la entrega del premio... 👀</p>
+<button class="again" onclick="again()">🔄 Elegir otra vez</button>
+</section>
+</main>
+<script>
+function choose(e,p){document.getElementById('emoji').textContent=e;document.getElementById('chosen').textContent=p;document.getElementById('start').classList.add('hidden');document.getElementById('result').classList.remove('hidden')}
+function again(){document.getElementById('result').classList.add('hidden');document.getElementById('start').classList.remove('hidden')}
+</script>
+</body>
+</html>
